@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brands Template Plugin - Help Guide</title>
+</head>
+<body>
+
+    <h1>Brands Template Plugin - Help Guide</h1>
+
+    <h2>Plugin Information</h2>
+    <p><strong>Plugin Name:</strong> Brands Template</p>
+    <p><strong>Version:</strong> 1.1</p>
+    <p><strong>Author:</strong> Choctaw Websites</p>
+
+    <h2>Overview</h2>
+    <p>The Brands Template plugin displays reviews related to a specific brand using the shortcode <code>[reviews_by_brand]</code>. The output matches the styling of the archive-template plugin, displaying reviews in a single-column layout with featured images, titles, rating images, and excerpts.</p>
+
+    <h2>Files Included</h2>
+    <ul>
+        <li><strong>brands_template.php</strong> - Main plugin file that registers and loads the plugin.</li>
+        <li><strong>sc_reviews_by_brand.php</strong> - The shortcode file that handles queries and displays related reviews.</li>
+        <li><strong>reviews_by_brand.css</strong> - The CSS file that styles the layout and visual elements.</li>
+        <li><strong>help.html</strong> - This help document.</li>
+    </ul>
+
+    <h2>Shortcode Usage: [reviews_by_brand]</h2>
+    <p>The <code>[reviews_by_brand]</code> shortcode is intended to be used in the "Brand Template" Element of GeneratePress.</p>
+    
+    <h3>How It Works</h3>
+    <ol>
+        <li>When the shortcode is placed inside a "brands" post, it retrieves the Post ID of the current brand.</li>
+        <li>It then queries all posts from the "reviews" custom post type where the "reviews_brand" field (ACF Relationship Field) matches the current brand.</li>
+        <li>If matching reviews are found:
+            <ul>
+                <li>Each review is displayed in a single-column layout.</li>
+                <li>The featured image (120px width) appears on the left.</li>
+                <li>The review content appears on the right, including:
+                    <ul>
+                        <li>Post title (linked to the review)</li>
+                        <li>Rating image (if available)</li>
+                        <li>Post excerpt</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>If no reviews are found, a message stating "No reviews available for this brand." is displayed.</li>
+    </ol>
+
+    <h2>CSS Styling and Shared Classes</h2>
+    <p><strong>Important Note:</strong> This plugin shares CSS class names with the archive-template plugin. Both plugins use identical class names such as:</p>
+    <ul>
+        <li><code>.taxonomy-archive-posts</code> - Main container for posts</li>
+        <li><code>.archive-post</code> - Individual post container</li>
+        <li><code>.archive-post-image</code> - Featured image container</li>
+        <li><code>.archive-post-title</code> - Post title styling</li>
+        <li><code>.rating-on-archive</code> - Rating image styling</li>
+        <li><code>.excerpt</code> - Post excerpt styling</li>
+    </ul>
+
+    <p><strong>CSS Interaction:</strong> Due to the shared class names, any changes made to the CSS in either plugin will affect both displays. For example, modifying the margin for <code>.rating-on-archive</code> in this plugin will also change the spacing in the archive-template plugin.</p>
+
+    <h3>Current Styling Details</h3>
+    <ul>
+        <li>Single-column layout with 120px image column and flexible content column</li>
+        <li>Links are colored #955733 with underline, changing to #222222 on hover</li>
+        <li>Compact spacing between title, rating, and excerpt</li>
+        <li>Responsive design that switches to vertical layout on mobile devices</li>
+    </ul>
+
+    <h2>Installation</h2>
+    <ol>
+        <li><strong>Upload & Activate:</strong>
+            <ul>
+                <li>Upload the "brands-template" folder to <code>/wp-content/plugins/</code>.</li>
+                <li>Activate the "Brands Template" plugin from the WordPress admin panel.</li>
+            </ul>
+        </li>
+        <li><strong>Use the Shortcode:</strong>
+            <ul>
+                <li>Place <code>[reviews_by_brand]</code> inside any single "brands" post.</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h2>Troubleshooting</h2>
+
+    <h3>Q: The shortcode is not displaying anything.</h3>
+    <ul>
+        <li>Ensure you are using it inside a "brands" post.</li>
+        <li>Check if the brand has any associated "reviews".</li>
+        <li>Confirm that the "reviews_brand" field in ACF is correctly set up as a Relationship Field.</li>
+    </ul>
+
+    <h3>Q: Images are missing or not displaying correctly.</h3>
+    <ul>
+        <li>Ensure the reviews have featured images assigned.</li>
+        <li>If no featured image exists, a placeholder image will be displayed automatically.</li>
+    </ul>
+
+    <h3>Q: CSS changes are affecting both plugins.</h3>
+    <ul>
+        <li>This is expected behavior due to shared class names between brands-template and archive-template plugins.</li>
+        <li>If you need different styling for each plugin, contact the developer to implement unique class names.</li>
+    </ul>
+
+    <h2>Support</h2>
+    <p>For any issues or customization requests, please contact <strong>Choctaw Websites</strong>.</p>
+
+    <p><strong>Thank you for using the Brands Template Plugin!</strong></p>
+
+</body>
+</html>

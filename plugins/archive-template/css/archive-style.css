@@ -1,0 +1,284 @@
+/* Archive Page Title */
+
+/* Breadcrumb Navigation */
+.archive-breadcrumbs {
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-bottom: 1px solid #000; /* 1px horizontal line */
+    padding-bottom: 20px; /* Space between the line and the title */
+}
+
+/* Breadcrumb links (Home & Reviews) */
+.archive-breadcrumbs a {
+    text-decoration: underline;
+    padding-right: 5px; /* Add space to the right */
+}
+
+.archive-breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+/* SVG Separator */
+.breadcrumb-separator {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-icon {
+    width: 1.0em;
+    height: 1.0em;
+    vertical-align: middle;
+}
+
+/* Current Breadcrumb (Last Item) */
+.breadcrumb-current {
+    font-weight: normal;
+    color: #333;
+}
+
+.archive-title {
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+/* Archive Description */
+.archive-description {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Add this after the archive title styling */
+
+/* Taxonomy Description */
+.taxonomy-description {
+    margin: 1em 0 2em;
+    padding: 1em;
+    background-color: #faf3dd;
+    border-radius: 5px;
+    line-height: 1.6;
+}
+
+.taxonomy-description p:last-child {
+    margin-bottom: 0;
+}
+
+/* Container for taxonomy archive posts */
+.taxonomy-archive-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Individual post block */
+.archive-post {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #fff;
+    width: 100%;
+}
+
+/* Featured image */
+.archive-post-image {
+    width: 120px;
+    height: 120px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.archive-post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Post Content */
+.archive-post-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex-grow: 1;
+}
+
+/* Post Title */
+.archive-post-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+}
+
+/* Rating Image */
+.rating-on-archive img {
+    width: 100px;
+    height: auto;
+}
+
+/* Excerpt */
+.excerpt {
+    font-size: 16px;
+}
+
+/* Filter Form - Ensure elements align properly */
+.rating-filter-form {
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-end; /* Align items to the bottom */
+    justify-content: flex-start;
+    border-radius: 10px;
+    border: 1px solid #333;
+    padding: 10px;
+    background-color: #faf3dd;
+}
+
+/* Group label and dropdown together */
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Label Styling */
+.rating-filter-form label {
+    font-size: 15px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Dropdown Fields */
+.rating-dropdown,
+.carbs-dropdown,
+.meat-dropdown { /* Ensure Meat dropdown has styling */
+    padding: 6px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
+    color: #333;
+    cursor: pointer;
+    min-width: 150px;
+}
+
+/* Dropdown on Hover */
+.rating-dropdown:hover,
+.carbs-dropdown:hover,
+.meat-dropdown:hover {
+    border-color: #888;
+}
+
+/* Align "Filter" Button to Bottom */
+.rating-filter-button {
+    padding: 5px 15px;
+    font-size: 16px;
+    background-color: #955733;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: flex-end; /* Align button to the bottom */
+}
+
+/* Button on Hover */
+.rating-filter-button:hover {
+    background-color: #2c170a;
+}
+
+/* Pagination */
+.archive-pagination {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.archive-pagination ul {
+    display: inline-block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.archive-pagination li {
+    display: inline;
+    margin: 0 5px;
+}
+
+.archive-pagination a,
+.archive-pagination span.current {
+    display: inline-block;
+    padding: 8px 12px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: #955733;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+.archive-pagination a:hover {
+    background-color: #955733;
+    color: #fff;
+    border-color: #955733;
+}
+
+.archive-pagination span.current {
+    background-color: #955733;
+    color: #fff;
+    border-color: #955733;
+}
+
+/* GenerateBlocks structure */
+.gb-element-1723acaf {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: var(--gb-container-width);
+}
+
+.gb-element-c6738244 {
+    column-gap: 2em;
+    display: grid;
+    grid-template-columns: 5fr 2fr;
+    row-gap: 1em;
+}
+
+@media (max-width: 767px) {
+    .gb-element-c6738244 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Global classes */
+.site-padding {
+    padding-bottom: 100px;
+}
+
+.body-padding {
+    padding-top: 60px;
+}
+
+.sidebar {
+    background-color: #faf3dd;
+}
+
+/* Filter Description */
+.filter-description {
+    margin: 1em 0 2em;
+    padding: 1em;
+    background-color: #faf3dd;
+    border-radius: 5px;
+    line-height: 1.6;
+}
+
+.post-count {
+    margin: 1em 0;
+    font-size: 0.9em;
+    color: #666;
+}

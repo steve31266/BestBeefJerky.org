@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Header Plugin Help</title>
+</head>
+<body>
+
+    <h1>Fixed Header Plugin Help</h1>
+    
+    <h2>Plugin Information</h2>
+    <p><strong>Plugin:</strong> Fixed Header</p>
+    <p><strong>Description:</strong> Keeps the full-sized header fixed at the top of the page while scrolling.</p>
+    <p><strong>Version:</strong> 1.1</p>
+
+    <h2>Included Files</h2>
+    <ul>
+        <li><code>/plugins/fixed-header/fixed-header.php</code> - The main plugin file</li>
+        <li><code>/plugins/fixed-header/fixed-header.js</code> - JavaScript to adjust page content margin when header height changes</li>
+        <li><code>/plugins/fixed-header/fixed-header.css</code> - CSS to style the fixed header and navigation</li>
+    </ul>
+
+    <h2>Functionality</h2>
+    <ul>
+        <li><strong>Fixed Header:</strong> The <code>.site-header</code> class is styled to remain fixed at the top of the page.</li>
+        <li><strong>Navigation Placement:</strong> The <code>.main-navigation</code> class must be positioned <strong>directly below</strong> <code>.site-header</code> in the document structure.</li>
+        <li><strong>Admin Bar Handling:</strong> The plugin automatically detects and adjusts for the WordPress Admin Bar if present.</li>
+        <li><strong>Content Adjustment:</strong> The JavaScript function <code>adjustMargin()</code> dynamically sets the <code>.site-content</code> margin based on the combined height of <code>.site-header</code>, <code>.main-navigation</code>, and the WordPress Admin Bar (if applicable).</li>
+        <li><strong>Responsive Behavior:</strong> The plugin ensures the correct margin is applied when the window is resized.</li>
+    </ul>
+
+    <h2>Installation & Activation</h2>
+    <ol>
+        <li>Upload the <code>fixed-header</code> plugin folder to <code>/wp-content/plugins/</code>.</li>
+        <li>Activate the plugin in <strong>WordPress Admin → Plugins</strong>.</li>
+        <li>Ensure that <code>.main-navigation</code> is positioned <strong>below</strong> <code>.site-header</code> in your theme's HTML structure.</li>
+    </ol>
+
+    <h2>Notes</h2>
+    <ul>
+        <li>This plugin is designed for themes where the <strong>navigation is separate from the header</strong>. If your navigation is inside the header, additional styling may be required.</li>
+        <li>If the header overlaps navigation or content, adjust styles in <code>fixed-header.css</code> or modify the <code>adjustMargin()</code> function in <code>fixed-header.js</code>.</li>
+    </ul>
+
+</body>
+</html>

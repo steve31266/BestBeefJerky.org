@@ -1,0 +1,67 @@
+/* Brand Listing - Single Column Layout */
+.brand-listing {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Individual brand block */
+.brand-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #fff;
+    width: 100%;
+}
+
+/* Brand logo */
+.brand-image {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.brand-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Brand Content */
+.brand-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* Brand Title */
+.brand-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+.brand-title a {
+    text-decoration: none;
+}
+
+.brand-title a:hover {
+    text-decoration: underline;
+}
+
+/* Headquarters Information */
+.brand-headquartered {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+/* Number of Reviews */
+.brand-reviews-count {
+    font-size: 16px;
+    font-style: italic;
+}

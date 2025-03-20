@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>301 Redirects Plugin - Help Guide</title>
+</head>
+<body>
+    <h1>301 Redirects Plugin - Help Guide</h1>
+    
+    <h2>Plugin Information</h2>
+    <p><strong>Plugin Name:</strong> 301 Redirects</p>
+    <p><strong>Version:</strong> 1.0</p>
+    <p><strong>Author:</strong> Choctaw Websites</p>
+    <p><strong>Website:</strong> <a href="https://www.bestbeefjerky.org/">https://www.bestbeefjerky.org/</a></p>
+    
+    <h2>Description</h2>
+    <p>This plugin helps redirect old imported Blogger URLs to their new WordPress structure using 301 permanent redirects. This preserves SEO rankings and ensures users are directed to the correct content.</p>
+    
+    <h2>How It Works</h2>
+    <ol>
+        <li>The plugin reads a JSON file (<code>redirects.json</code>) containing old and new URL mappings.</li>
+        <li>When a user visits an old URL, the plugin checks if a redirect exists.</li>
+        <li>If a match is found, the user is automatically redirected to the new URL with a 301 redirect.</li>
+    </ol>
+    
+    <h2>Installation & Setup</h2>
+    <h3>1. Upload & Activate the Plugin</h3>
+    <ul>
+        <li>Upload the <code>301-redirect</code> folder to your WordPress <code>/wp-content/plugins/</code> directory.</li>
+        <li>Go to <strong>WordPress Admin &gt; Plugins</strong> and activate <strong>301 Redirects</strong>.</li>
+    </ul>
+    
+    <h3>2. Create and Configure Redirects</h3>
+    <ul>
+        <li>Open the <code>301-redirect</code> plugin folder and locate <code>redirects.json</code>.</li>
+        <li>Add your redirects using the following format:</li>
+    </ul>
+    <pre>
+{
+    "/2025/02/07/old-post-slug/": "/reviews/new-post-slug/",
+    "/2024/12/15/example-old-post/": "/reviews/example-old-post/"
+}
+    </pre>
+    <ul>
+        <li>Each entry maps an old URL (key) to a new URL (value).</li>
+        <li>Ensure the URLs match the path structure of your WordPress site.</li>
+    </ul>
+    
+    <h3>3. Testing Your Redirects</h3>
+    <ul>
+        <li>Visit an old Blogger URL in your browser.</li>
+        <li>The browser should automatically redirect to the correct WordPress URL.</li>
+        <li>If redirects are not working, ensure the <code>redirects.json</code> file is correctly formatted and exists in the plugin directory.</li>
+    </ul>
+    
+    <h2>Managing Redirects</h2>
+    <ul>
+        <li>To <strong>add new redirects</strong>, update <code>redirects.json</code> with new entries.</li>
+        <li>To <strong>remove a redirect</strong>, delete the corresponding entry from <code>redirects.json</code>.</li>
+        <li>Changes take effect immediately after saving the file.</li>
+    </ul>
+    
+    <h2>Troubleshooting</h2>
+    <ul>
+        <li><strong>Redirects not working?</strong></li>
+        <ul>
+            <li>Check if <code>redirects.json</code> is properly formatted.</li>
+            <li>Make sure the plugin is activated.</li>
+            <li>Clear your browser cache and try again.</li>
+        </ul>
+    </ul>
+    
+    <h2>Support</h2>
+    <p>For assistance, visit <a href="https://www.bestbeefjerky.org/">https://www.bestbeefjerky.org/</a> or contact the plugin developer.</p>
+    
+    <p>Thank you for using 301 Redirects!</p>
+</body>
+</html>

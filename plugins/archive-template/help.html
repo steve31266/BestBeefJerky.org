@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archive Template Plugin Help</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #23282d;
+        }
+        code {
+            background: #f5f5f5;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        pre {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .file-structure {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <h1>Archive Template Plugin Documentation</h1>
+    
+    <h2>Overview</h2>
+    <p>The Archive Template plugin creates a custom archive system for jerky reviews, providing both a main reviews page (<code>/reviews/</code>) and taxonomy archive pages. It includes filtering capabilities, pagination, and maintains consistent styling with GeneratePress and GenerateBlocks.</p>
+
+    <h2>File Structure</h2>
+    <div class="file-structure">
+        <pre>
+archive-template/
+├── archive-template.php       # Main plugin file
+├── templates/
+│   └── archive-reviews.php    # Template for reviews page
+├── includes/
+│   ├── query-loop.php        # Query and display logic
+│   └── filter-form.php       # Filter form HTML
+├── css/
+│   └── archive-style.css     # Styling for archive pages
+├── images/
+│   └── placeholder.webp      # Default image placeholder
+└── help.html                 # This documentation file</pre>
+    </div>
+
+    <h2>File Descriptions</h2>
+    <table>
+        <tr>
+            <th>File</th>
+            <th>Purpose</th>
+        </tr>
+        <tr>
+            <td><code>archive-template.php</code></td>
+            <td>
+                <ul>
+                    <li>Plugin initialization</li>
+                    <li>Rewrite rules for /reviews/ URL</li>
+                    <li>Template loading</li>
+                    <li>Style enqueuing</li>
+                    <li>Activation/deactivation hooks</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><code>archive-reviews.php</code></td>
+            <td>
+                <ul>
+                    <li>Main template for /reviews/ page</li>
+                    <li>GenerateBlocks structure implementation</li>
+                    <li>Grid layout with sidebar</li>
+                    <li>Content display organization</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><code>query-loop.php</code></td>
+            <td>
+                <ul>
+                    <li>WP_Query setup for reviews</li>
+                    <li>Pagination handling</li>
+                    <li>Breadcrumb generation</li>
+                    <li>Archive title display</li>
+                    <li>Post loop display logic</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><code>filter-form.php</code></td>
+            <td>
+                <ul>
+                    <li>Dynamic filter form generation</li>
+                    <li>Rating filter options</li>
+                    <li>Carbs filter options</li>
+                    <li>Meat type taxonomy integration</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><code>archive-style.css</code></td>
+            <td>
+                <ul>
+                    <li>Filter form styling</li>
+                    <li>Archive post layout</li>
+                    <li>GenerateBlocks grid structure</li>
+                    <li>Responsive design rules</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+
+    <h2>Features</h2>
+    <h3>Content Display</h3>
+    <h4>Main Reviews Page (<code>/reviews/</code>)</h4>
+    <p>Content is displayed in the following order:</p>
+    <ol>
+        <li>Breadcrumb navigation</li>
+        <li>Page title ("Jerky Reviews")</li>
+        <li>Filter information and post count:
+            <ul>
+                <li>Shows current filter status: "<strong>Filtered by:</strong> Rating: [value], Carbs: [value], Meat Type: [value]"</li>
+                <li>Shows total posts found: "<strong>Number of Reviews Found:</strong> [count]"</li>
+                <li>Both pieces of information appear in the same styled box</li>
+                <li>Filter information updates automatically when filters are applied</li>
+            </ul>
+        </li>
+        <li>Filter form</li>
+        <li>Posts listing</li>
+        <li>Pagination (if applicable)</li>
+    </ol>
+
+    <h4>Taxonomy Archive Pages (e.g., <code>/meat-type/beef/</code>)</h4>
+    <p>Content is displayed in the following order:</p>
+    <ol>
+        <li>Breadcrumb navigation</li>
+        <li>Taxonomy title (e.g., "Meat Type: Beef")</li>
+        <li>Taxonomy description (if available):
+            <ul>
+                <li>Pulled from the term's Description field in WordPress admin</li>
+                <li>Supports HTML formatting</li>
+                <li>Appears in a styled box</li>
+            </ul>
+        </li>
+        <li>Post count display:
+            <ul>
+                <li>Shows in its own styled box</li>
+                <li>Format: "<strong>Number of Reviews Found:</strong> [count]"</li>
+                <li>Updates automatically based on current taxonomy</li>
+            </ul>
+        </li>
+        <li>Filter form</li>
+        <li>Posts listing</li>
+        <li>Pagination (if applicable)</li>
+    </ol>
+
+    <h3>Post Count Display</h3>
+    <p>The plugin provides dynamic post counting functionality that adapts to different page types:</p>
+    <table>
+        <tr>
+            <th>Page Type</th>
+            <th>Display Format</th>
+            <th>Location</th>
+            <th>Updates With</th>
+        </tr>
+        <tr>
+            <td>Main Reviews Page</td>
+            <td>Combined with filter status in same box</td>
+            <td>Below title, above filter form</td>
+            <td>Updates when filters are applied</td>
+        </tr>
+        <tr>
+            <td>Taxonomy Archives</td>
+            <td>Standalone count in separate box</td>
+            <td>Below taxonomy description, above filter form</td>
+            <td>Updates based on current taxonomy term</td>
+        </tr>
+    </table>
+
+    <h3>URL Structure</h3>
+    <ul>
+        <li>Main Reviews Page: <code>/reviews/</code></li>
+        <li>Paginated Reviews: <code>/reviews/page/2/</code></li>
+        <li>Taxonomy Archives: <code>/meat-type/beef/</code></li>
+    </ul>
+
+    <h3>Filtering System</h3>
+    <p>The plugin provides three types of filters:</p>
+    <ul>
+        <li><strong>Rating Filter:</strong> Uses ACF field 'reviews_rating' with options:
+            <ul>
+                <li>Best (754)</li>
+                <li>Good (755)</li>
+                <li>Average (756)</li>
+                <li>Fair (757)</li>
+                <li>Dog Treats (758)</li>
+            </ul>
+        </li>
+        <li><strong>Carbs Filter:</strong> Uses ACF field 'nutrition_total_carbs' with options:
+            <ul>
+                <li>All</li>
+                <li>Low Carb (≤3g)</li>
+                <li>Zero Carb (0g)</li>
+            </ul>
+        </li>
+        <li><strong>Meat Filter:</strong> Uses 'meat-type' taxonomy, dynamically populated</li>
+    </ul>
+
+    <h4>Filter Form Pagination Handling</h4>
+    <p>The plugin includes special handling for filter form submissions when on paginated pages:</p>
+    <ul>
+        <li><strong>Automatic Page Reset:</strong> When applying filters from page 2 or higher, the system automatically redirects to page 1 of the filtered results.</li>
+        <li><strong>URL Management:</strong>
+            <ul>
+                <li>Removes any existing page number from the URL (e.g., '/page/2/')</li>
+                <li>Preserves all filter parameters in the URL</li>
+                <li>Ensures clean URL structure for filtered results</li>
+            </ul>
+        </li>
+        <li><strong>Use Case Example:</strong>
+            <ul>
+                <li>Original URL: <code>/reviews/page/2/?rating_filter=0&carbs_filter=all&meat_filter=all</code></li>
+                <li>After applying "Alligator" meat filter: <code>/reviews/?rating_filter=0&carbs_filter=all&meat_filter=alligator</code></li>
+            </ul>
+        </li>
+        <li><strong>Benefits:</strong>
+            <ul>
+                <li>Prevents "No reviews found" errors when filtering from later pages</li>
+                <li>Ensures all filtered results are accessible</li>
+                <li>Maintains consistent user experience</li>
+                <li>Works on both main reviews page and taxonomy archives</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Data Sources</h3>
+    <table>
+        <tr>
+            <th>Feature</th>
+            <th>Data Source</th>
+        </tr>
+        <tr>
+            <td>Reviews</td>
+            <td>Custom post type: 'reviews'</td>
+        </tr>
+        <tr>
+            <td>Rating</td>
+            <td>ACF field: 'reviews_rating'</td>
+        </tr>
+        <tr>
+            <td>Rating Image</td>
+            <td>ACF field: 'rating_image'</td>
+        </tr>
+        <tr>
+            <td>Carbs</td>
+            <td>ACF field: 'nutrition_total_carbs'</td>
+        </tr>
+        <tr>
+            <td>Meat Type</td>
+            <td>Custom taxonomy: 'meat-type'</td>
+        </tr>
+        <tr>
+            <td>Featured Image</td>
+            <td>WordPress featured image</td>
+        </tr>
+    </table>
+
+    <h2>Integration with GeneratePress</h2>
+    <p>The plugin integrates with GeneratePress and GenerateBlocks using:</p>
+    <ul>
+        <li>Grid layout matching GenerateBlocks structure</li>
+        <li>Consistent class naming with GenerateBlocks</li>
+        <li>Responsive design matching theme breakpoints</li>
+        <li>Global classes: 'site-padding', 'body-padding', 'sidebar'</li>
+    </ul>
+
+    <h3>Taxonomy Archive Requirements</h3>
+    <p><strong>Important:</strong> For taxonomy archive pages (e.g., <code>/meat-type/beef/</code>), you must create a GeneratePress Loop Template element specifically named "Taxonomy Archive Template". This template should contain the shortcode and necessary GenerateBlocks structure:</p>
+
+    <h4>Taxonomy Descriptions</h4>
+    <p>The plugin automatically displays taxonomy descriptions on archive pages. These descriptions are pulled from the WordPress admin area:</p>
+    <ol>
+        <li>Navigate to WordPress Admin > Reviews > Meat Types</li>
+        <li>Click on any meat type term (e.g., "Beef")</li>
+        <li>The "Description" field in the term editor will be displayed on the archive page</li>
+        <li>The description appears between the title and filter form</li>
+        <li>Descriptions support HTML formatting and will be styled to match your site's design</li>
+    </ol>
+    <p>This feature allows you to add detailed descriptions for each meat type category, which can include information about the meat type, common characteristics, or any other relevant details you want to share with your readers.</p>
+
+    <h4>Content Display Order</h4>
+    <p>On taxonomy archive pages, content is displayed in the following order:</p>
+    <ol>
+        <li>Breadcrumb navigation</li>
+        <li>Taxonomy title (e.g., "Meat Type: Beef")</li>
+        <li>Taxonomy description (from the term's Description field in WordPress admin)</li>
+        <li>Filter form</li>
+        <li>Posts listing</li>
+        <li>Pagination (if applicable)</li>
+    </ol>
+
+    <pre><!-- wp:generateblocks/element {"uniqueId":"3c7bfe2b","tagName":"div","styles":{}} -->
+<div><!-- wp:generateblocks/element {"uniqueId":"1723acaf","tagName":"div","styles":{"maxWidth":"var(\u002d\u002dgb-container-width)","marginLeft":"auto","marginRight":"auto"},"globalClasses":["site-padding"]} -->
+<div class="site-padding gb-element-1723acaf"><!-- wp:generateblocks/element {"uniqueId":"c6738244","tagName":"div","styles":{"display":"grid","gridTemplateColumns":"5fr 2fr","columnGap":"2em","rowGap":"1em"}} -->
+<div class="gb-element-c6738244"><!-- wp:generateblocks/element {"uniqueId":"72e0fd60","tagName":"div","globalClasses":["body-padding"]} -->
+<div class="body-padding"><!-- wp:shortcode -->
+[jerky_review_loop type="taxonomy"]
+<!-- /wp:shortcode --></div>
+<!-- /wp:generateblocks/element -->
+
+<!-- wp:generateblocks/element {"uniqueId":"f18c9935","tagName":"div","globalClasses":["sidebar"]} -->
+<div class="sidebar"></div>
+<!-- /wp:generateblocks/element --></div>
+<!-- /wp:generateblocks/element --></div>
+<!-- /wp:generateblocks/element --></div>
+<!-- /wp:generateblocks/element --></pre>
+
+    <p>This Loop Template must be assigned to your taxonomy archives in GeneratePress Elements settings for proper display and styling of taxonomy archive pages.</p>
+
+    <h2>Pagination</h2>
+    <p>The plugin implements WordPress pagination with:</p>
+    <ul>
+        <li>10 posts per page</li>
+        <li>Previous/Next navigation</li>
+        <li>Numeric page links</li>
+        <li>Proper URL structure maintenance</li>
+    </ul>
+
+    <h2>Shortcode Usage</h2>
+    <p>The plugin provides a shortcode for use in taxonomy templates:</p>
+    <pre>[jerky_review_loop type="taxonomy"]</pre>
+    <p>Parameters:</p>
+    <ul>
+        <li><code>type="taxonomy"</code>: For taxonomy archive pages</li>
+        <li><code>type="all"</code>: For the main reviews page</li>
+    </ul>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lightbox2 Integration - Help & Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 20px;
+            max-width: 800px;
+            background-color: #f8f8f8;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #555;
+        }
+        p {
+            color: #444;
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        .note {
+            background-color: #fffae6;
+            border-left: 5px solid #ffcc00;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Lightbox2 Integration - Help & Documentation</h1>
+    <p><strong>Version:</strong> 1.0</p>
+    <p><strong>Author:</strong> Choctaw Websites</p>
+
+    <h2>📌 Overview</h2>
+    <p>The <strong>Lightbox2 Integration</strong> plugin adds Lightbox2 functionality to WordPress, allowing images to open in a popup overlay with navigation controls. This is useful for displaying high-resolution images in an elegant, user-friendly way.</p>
+
+    <h2>⚙️ How It Works</h2>
+    <p>This plugin:</p>
+    <ul>
+        <li>Enqueues the Lightbox2 CSS and JavaScript files.</li>
+        <li>Adds Lightbox2 functionality to all images linked to full-size image files.</li>
+        <li>Requires adding <code>data-lightbox="gallery"</code> to image links to activate the lightbox effect.</li>
+    </ul>
+
+    <h2>🚀 Setup & Requirements</h2>
+    <p>To make Lightbox2 work with WordPress, follow these steps:</p>
+
+    <h3>1️⃣ Ensure Your Images Are Inside `<a>` Tags</h3>
+    <p>Lightbox2 requires images to be wrapped inside a link (`<a>`) that points to the full-size image. Example:</p>
+    <pre>
+<a href="https://example.com/fullsize-image.jpg" data-lightbox="gallery">
+    <img src="https://example.com/thumbnail.jpg" alt="Thumbnail">
+</a>
+    </pre>
+
+    <h3>2️⃣ Adding `data-lightbox="gallery"` in GenerateBlocks</h3>
+    <p><strong>If you are using GenerateBlocks,</strong> the images inside dynamic blocks will not automatically get `data-lightbox="gallery"`. You must manually add it as a <strong>custom attribute</strong> inside the template.</p>
+
+    <div class="note">
+        <strong>Important:</strong> In GenerateBlocks, go to the **Image Container** block settings → Scroll to "Advanced" → Add <code>data-lightbox="gallery"</code> in the "Custom Attributes" field.
+    </div>
+
+    <h3>3️⃣ Clear Cache & Test</h3>
+    <p>After making changes, refresh your browser and clear any caching plugins to ensure Lightbox2 is properly applied.</p>
+
+    <h2>🔍 Troubleshooting</h2>
+    <h3>❓ Lightbox2 Is Not Working</h3>
+    <p>If images are opening in a new tab instead of the Lightbox popup:</p>
+    <ul>
+        <li>Check if the `<a>` tag around the image has `data-lightbox="gallery"`.</li>
+        <li>Ensure the Lightbox2 JavaScript file is loading (Inspect with `F12 → Console`).</li>
+        <li>Clear your browser cache and any WordPress caching plugins.</li>
+    </ul>
+
+    <h3>❓ Lightbox2 Navigation Icons (Close, Next, Prev) Are Missing</h3>
+    <p>This issue occurs if the CSS file is pointing to incorrect image paths.</p>
+    <p><strong>Fix:</strong> The plugin was updated to use the correct absolute paths:</p>
+    <pre>
+background: url('/wp-content/plugins/lightbox/images/loading.gif') no-repeat;
+background: url('/wp-content/plugins/lightbox/images/prev.png') no-repeat;
+background: url('/wp-content/plugins/lightbox/images/next.png') no-repeat;
+background: url('/wp-content/plugins/lightbox/images/close.png') no-repeat;
+    </pre>
+
+    <h2>📖 Additional Resources</h2>
+    <p>For more details on Lightbox2, visit: <a href="http://lokeshdhakar.com/projects/lightbox2/" target="_blank">Lightbox2 Official Page</a></p>
+
+    <h2>💡 Need More Help?</h2>
+    <p>If you have any issues with this plugin, feel free to contact <strong>Choctaw Websites</strong> for support.</p>
+
+</body>
+</html>

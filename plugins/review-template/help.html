@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Template Plugin - Help</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        code {
+            background: #eee;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        pre {
+            background: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        a {
+            color: #0073aa;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ul {
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Review Template Plugin - Help</h1>
+        <p><strong>Version:</strong> 1.0</p>
+
+        <h2>Description</h2>
+        <p>This plugin adds custom shortcodes for displaying review information on the Review Template element.</p>
+
+        <h2>Included Files</h2>
+        <ul>
+            <li><code>review_template.php</code></li>
+            <li><code>sc_review_brand_name.php</code> - Shortcode: <code>[review_brand_name]</code></li>
+            <li><code>sc_review_establishment_number.php</code> - Shortcode: <code>[review_establishment_number]</code></li>
+            <li><code>sc_review_meat_type.php</code> - Shortcode: <code>[review_meat_type]</code></li>
+            <li><code>sc_review_variety.php</code> - Shortcode: <code>[review_variety]</code></li>
+            <li><code>sc_review_ingredients.php</code> - Shortcode: <code>[review_ingredients]</code></li>
+            <li><code>sc_review_allergens.php</code> - Shortcode: <code>[review_allergens]</code></li>
+            <li><code>sc_review_advertised_claims.php</code> - Shortcode: <code>[review_advertised_claims]</code></li>
+            <li><code>sc_review_snack_form.php</code> - Shortcode: <code>[review_snack_form]</code></li>
+        </ul>
+
+        <h2>Shortcodes & Usage</h2>
+
+        <h3>[review_brand_name]</h3>
+        <p>Retrieves and displays the brand name associated with a review post, linking it to the brand's page.</p>
+        <pre><code>[review_brand_name]</code></pre>
+        <p><strong>Example Output:</strong></p>
+        <pre><code>&lt;a href="https://yoursite.com/brands/example-brand/"&gt;Example Brand&lt;/a&gt;</code></pre>
+
+        <h3>[review_establishment_number]</h3>
+        <p>Retrieves and displays the establishment number linked to a review.</p>
+        <pre><code>[review_establishment_number]</code></pre>
+        <p><strong>Example Output:</strong></p>
+        <pre><code>&lt;a href="https://yoursite.com/est/smith-meat-co/"&gt;Est# Smith Meat Co.&lt;/a&gt;, (Smith Processing Facility)</code></pre>
+
+        <h3>[review_meat_type]</h3>
+        <p>Displays the meat type(s) related to a review, each linked to its archive page.</p>
+        <pre><code>[review_meat_type]</code></pre>
+        <p><strong>Example Output:</strong></p>
+        <pre><code>&lt;a href="https://yoursite.com/meat-type/beef/"&gt;Beef&lt;/a&gt;, 
+&lt;a href="https://yoursite.com/meat-type/pork/"&gt;Pork&lt;/a&gt;</code></pre>
+
+        <h3>[review_variety]</h3>
+        <p>Displays the variety type(s) related to a review.</p>
+        <pre><code>[review_variety]</code></pre>
+
+        <h3>[review_ingredients]</h3>
+        <p>Displays the ingredient(s) associated with a review post.</p>
+        <pre><code>[review_ingredients]</code></pre>
+
+        <h3>[review_allergens]</h3>
+        <p>Displays the allergen(s) related to a review.</p>
+        <pre><code>[review_allergens]</code></pre>
+
+        <h3>[review_advertised_claims]</h3>
+        <p>Displays the advertised claims linked to a review post.</p>
+        <pre><code>[review_advertised_claims]</code></pre>
+
+        <h3>[review_snack_form]</h3>
+        <p>Displays the snack form(s) related to a review, each linked to its archive page.</p>
+        <pre><code>[review_snack_form]</code></pre>
+        <p><strong>Example Output:</strong></p>
+        <pre><code>&lt;a href="https://yoursite.com/snack-form/sticks/"&gt;Sticks&lt;/a&gt;, 
+&lt;a href="https://yoursite.com/snack-form/strips/"&gt;Strips&lt;/a&gt;, 
+&lt;a href="https://yoursite.com/snack-form/chunks/"&gt;Chunks&lt;/a&gt;</code></pre>
+
+        <h2>Help & Support</h2>
+        <p><strong>Plugin Page:</strong> <a href="#">[Your Website URL or Documentation Page]</a></p>
+        <p><strong>For assistance, visit:</strong> <a href="#">[Your Support Page or Contact Email]</a></p>
+    </div>
+</body>
+</html>

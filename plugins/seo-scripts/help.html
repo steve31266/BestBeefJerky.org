@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Scripts Plugin - Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #444;
+        }
+        h1 {
+            text-align: center;
+        }
+        code {
+            background: #eee;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        pre {
+            background: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        a {
+            color: #007bff;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>SEO Scripts Plugin - Documentation</h1>
+
+    <div class="section">
+        <h2>Plugin Information</h2>
+        <p><strong>Plugin Name:</strong> SEO Scripts</p>
+        <p><strong>Version:</strong> 1.0</p>
+        <p><strong>Author:</strong> Choctaw Websites</p>
+        <p><strong>Description:</strong> Enhances SEO metadata for taxonomy archive pages used in the "reviews" custom post type.</p>
+    </div>
+
+    <div class="section">
+        <h2>Functionality Overview</h2>
+        <p>This plugin improves the SEO of taxonomy archive pages by dynamically generating:</p>
+        <ul>
+            <li>Custom <code>&lt;title&gt;</code> tags based on user-defined SEO fields.</li>
+            <li><code>&lt;meta&gt;</code> description tags using either the taxonomy description or a fallback template.</li>
+            <li>Open Graph meta tags (<code>og:title</code>, <code>og:description</code>, <code>og:image</code>) for better social media previews.</li>
+            <li>Twitter Card meta tags (<code>twitter:title</code>, <code>twitter:description</code>, <code>twitter:image</code>) for optimized Twitter sharing.</li>
+            <li>JSON-LD Schema (<code>CollectionPage</code>) for better Google search visibility.</li>
+        </ul>
+        <p>It works for the following taxonomies:</p>
+        <ul>
+            <li>Meat Type (<code>meat-type</code>)</li>
+            <li>Ingredient (<code>ingredient</code>)</li>
+            <li>Claim (<code>claim</code>)</li>
+            <li>Variety (<code>variety</code>)</li>
+            <li>Allergen (<code>allergen</code>)</li>
+            <li>Snack Form (<code>snack-form</code>)</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>How It Works</h2>
+        <ol>
+            <li>The plugin automatically detects when a taxonomy archive page is loaded.</li>
+            <li>It retrieves data from Advanced Custom Fields (ACF) associated with the taxonomy term.</li>
+            <li>If the required data exists, it generates <code>&lt;title&gt;</code>, <code>&lt;meta&gt;</code>, Open Graph, and Twitter Card tags.</li>
+            <li>If no data is found in the fields, it falls back to default values.</li>
+            <li>The generated meta tags are outputted in the <code>&lt;head&gt;</code> section of the HTML.</li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h2>Required Data - Advanced Custom Fields</h2>
+        <h3>SEO Title (Used for <code>&lt;title&gt;</code>, Open Graph, and Twitter Cards)</h3>
+        <ul>
+            <li>Meat Type: <code>meat-type-seo-title</code></li>
+            <li>Ingredient: <code>ingredient_seo_title</code></li>
+            <li>Claim: <code>claim_seo_title</code></li>
+            <li>Variety: <code>variety_seo_title</code></li>
+            <li>Allergen: <code>allergen_seo_title</code></li>
+            <li>Snack Form: <code>snack_form_seo_title</code></li>
+        </ul>
+
+        <h3>Taxonomy Description (Used for <code>&lt;meta&gt;</code> description)</h3>
+        <p>This is the built-in WordPress taxonomy description. If empty, a default description is generated based on the taxonomy name.</p>
+
+        <h3>Taxonomy Image (Used for Open Graph & Twitter Cards)</h3>
+        <ul>
+            <li>Meat Type: <code>meat-type-image</code></li>
+            <li>Ingredient: <code>ingredient_image</code></li>
+            <li>Claim: <code>claim_image</code></li>
+            <li>Variety: <code>variety_image</code></li>
+            <li>Allergen: <code>allergen_image</code></li>
+            <li>Snack Form: <code>snack_form_image</code></li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Testing & Verification</h2>
+        <h3>Check Page Source</h3>
+        <ul>
+            <li>Open a taxonomy archive page.</li>
+            <li>Right-click -> "View Page Source".</li>
+            <li>Look for:
+                <ul>
+                    <li><code>&lt;title&gt;</code> tag</li>
+                    <li><code>&lt;meta name="description"&gt;</code> tag</li>
+                    <li>Open Graph tags</li>
+                    <li>Twitter Card tags</li>
+                </ul>
+            </li>
+        </ul>
+        <h3>Validate Schema Markup</h3>
+        <p>Use <a href="https://search.google.com/test/rich-results" target="_blank">Google Rich Results Test</a> to check for CollectionPage Schema.</p>
+    </div>
+
+    <div class="section">
+        <h2>Help & Support</h2>
+        <p>For additional help, check:</p>
+        <ul>
+            <li><code>taxonomy_archive_meta.php</code> for script details.</li>
+            <li>Ensure ACF fields are set up correctly.</li>
+            <li>Use the WordPress Debug Log (<code>/wp-content/debug.log</code>) for troubleshooting.</li>
+        </ul>
+    </div>
+
+</body>
+</html>

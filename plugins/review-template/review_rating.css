@@ -1,0 +1,30 @@
+/* Styles for [jerky_rating] shortcode */
+.jerky-rating {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between elements */
+    font-size: 1.0em;
+    color: #333; /* Adjust as needed */
+}
+
+.jerky-rating .rating-label {
+    font-weight: bold;
+    color: #333;
+    margin-right: 5px;
+    margin-bottom: 0px;
+}
+
+.jerky-rating .rating-text {
+    font-weight: normal;
+    margin-bottom: 0px;
+}
+
+.jerky-rating .rating-text:hover {
+    text-decoration: underline;
+    margin-bottom: 0px;
+}
+
+.jerky-rating .rating-image {
+    width: 100px; /* Adjust image size as needed */
+    height: auto;
+}

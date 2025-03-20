@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EST Template Plugin - Help Documentation</title>
+</head>
+<body>
+    <h1>EST Template Plugin - Help Documentation</h1>
+    <p><strong>Plugin Version:</strong> 1.7</p>
+    <p><strong>Author:</strong> Choctaw Websites</p>
+    <p>This plugin enhances the "est" custom post type by adding Google Maps functionality, modifying the &lt;title&gt; tag, displaying reviews, and other custom features.</p>
+
+    <h2>Shortcodes</h2>
+
+    <h3>[est_map]</h3>
+    <p><strong>Description:</strong><br>
+    This shortcode displays a Google Map on "est" custom post types.</p>
+    <p><strong>How It Works:</strong></p>
+    <ul>
+        <li>Retrieves the 'est_geolocation' field (stored as GPS coordinates).</li>
+        <li>Displays a Google Map centered on the specified location.</li>
+        <li>Places a map marker at the location.</li>
+        <li>Uses a Google Maps Map ID for styling instead of Snazzy Maps.</li>
+    </ul>
+    <p><strong>Usage:</strong></p>
+    <pre>[est_map]</pre>
+    <p><strong>Requirements:</strong></p>
+    <ul>
+        <li>The "est" custom post type must have the ACF field <code>est_geolocation</code> containing valid GPS coordinates.</li>
+        <li>A valid Google Maps API key must be set in <code>wp-config.php</code>:</li>
+    </ul>
+    <pre>define('GOOGLE_MAPS_API_KEY', 'your-api-key-here');</pre>
+    <ul>
+        <li>A Google Maps Map ID must be set inside <code>js/est_map.js</code>:</li>
+    </ul>
+    <pre>mapId: "c90daffa6805ba6d"</pre>
+
+    <h3>[reviews_by_est]</h3>
+    <p><strong>Description:</strong><br>
+    This shortcode displays reviews related to the current "est" post.</p>
+    <p><strong>How It Works:</strong></p>
+    <ul>
+        <li>Retrieves reviews from the "reviews" custom post type.</li>
+        <li>Filters reviews using the "reviews_establishment_number" field, which is an ACF relationship field linking reviews to "est" posts.</li>
+        <li>Displays each review as a clickable grid item, showing the featured image and post title.</li>
+    </ul>
+    <p><strong>Usage:</strong></p>
+    <pre>[reviews_by_est]</pre>
+
+    <h2>Additional Functionality</h2>
+
+    <h3>Custom &lt;title&gt; Tag Modification</h3>
+    <ul>
+        <li>Automatically modifies the <code>&lt;title&gt;</code> tag for all "est" custom post types.</li>
+        <li>The title is changed from:</li>
+    </ul>
+    <pre>4993</pre>
+    <p>To:</p>
+    <pre>USDA Establishment # 4993</pre>
+
+    <h3>Plugin Help Link in Plugin Listing</h3>
+    <ul>
+        <li>A "Help" link appears in the WordPress Plugins list next to "EST Template".</li>
+        <li>Clicking the link opens this <code>help.html</code> file for easy reference.</li>
+    </ul>
+
+    <h2>File List & Purpose</h2>
+    <pre>
+/wp-content/plugins/est-template/
+- est_template.php          -> Main plugin file, initializes features
+- sc_est_map.php            -> Shortcode file for displaying Google Maps
+- sc_reviews_by_est.php     -> Shortcode file for displaying related reviews
+- modify_est_title.php      -> Modifies the <title> tag for "est" posts
+- js/
+  - est_map.js              -> JavaScript for Google Maps initialization
+- css/
+  - est_map.css             -> CSS for styling the Google Map
+  - reviews_by_est.css      -> CSS for styling the reviews grid
+- help.html                 -> This help file with plugin documentation
+    </pre>
+
+    <h2>Installation & Setup</h2>
+    <ol>
+        <li>Upload the <strong>est-template</strong> folder to <code>/wp-content/plugins/</code>.</li>
+        <li>Activate the <strong>"EST Template"</strong> plugin in WordPress.</li>
+        <li>Ensure the <strong>Google Maps API key</strong> is added to <code>wp-config.php</code>:</li>
+    </ol>
+    <pre>define('GOOGLE_MAPS_API_KEY', 'your-api-key-here');</pre>
+    <ol start="4">
+        <li>Ensure each "est" post has a <strong>valid GPS coordinate</strong> in the <code>est_geolocation</code> field.</li>
+        <li>Set a valid <strong>Google Maps Map ID</strong> inside <code>js/est_map.js</code>.</li>
+        <li>Insert <pre>[est_map]</pre> in any "est" post where a map should appear.</li>
+        <li>Insert <pre>[reviews_by_est]</pre> in any "est" post to display related reviews.</li>
+    </ol>
+
+    <h2>Support & Troubleshooting</h2>
+
+    <h3>Google Map Not Displaying?</h3>
+    <ul>
+        <li>Ensure the <code>est_geolocation</code> field contains valid GPS coordinates.</li>
+        <li>Check that the <strong>Google Maps API key</strong> is set correctly in <code>wp-config.php</code>.</li>
+        <li>Ensure the <strong>Google Maps Map ID</strong> is set correctly in <code>js/est_map.js</code>.</li>
+        <li>Open the <strong>browser console (F12 > Console)</strong> and check for errors.</li>
+    </ul>
+
+    <h3>Title Not Changing?</h3>
+    <ul>
+        <li>Ensure you're viewing a post of the <strong>"est" custom post type"</strong>.</li>
+        <li>Flush permalinks by visiting <strong>Settings > Permalinks</strong> and clicking "Save Changes".</li>
+    </ul>
+
+    <h3>Help Link Not Appearing in Plugins Page?</h3>
+    <ul>
+        <li>Make sure the <code>help.html</code> file is present in <code>/wp-content/plugins/est-template/</code>.</li>
+    </ul>
+
+    <h2>License & Credits</h2>
+    <p>This plugin is custom-built for WordPress sites using the "est" custom post type.</p>
+    <p><strong>Developed by:</strong> Choctaw Websites</p>
+</body>
+</html>

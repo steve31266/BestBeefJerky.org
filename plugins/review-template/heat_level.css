@@ -1,0 +1,27 @@
+/* Styles for the [heat_level] shortcode */
+.heat-level {
+    display: flex;
+    align-items: center;
+    margin-top: -20px;
+    font-size: 1.0em;
+}
+
+.heat-label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.heat-image {
+    width: 80px; /* Adjust size as needed */
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.heat-text {
+    font-size: 16px;
+    text-decoration: underline;
+}
+
+.heat-text:hover {
+    text-decoration: underline;
+}

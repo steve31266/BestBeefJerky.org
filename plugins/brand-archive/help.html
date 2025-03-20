@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Brand Archive Page - Help Guide</title>
+</head>
+<body>
+
+<h1>Brand Archive Page Plugin - Help Guide</h1>
+
+<h2>Overview</h2>
+<p>The Brand Archive Page plugin provides a shortcode <code>[brand_listing]</code> that displays 
+a list of all brand posts from the "brands" custom post type. The list includes:</p>
+
+<ul>
+    <li>Brand logo (linked to the brand's post)</li>
+    <li>Brand name (linked to the brand's post)</li>
+    <li>Brand headquarters location (if available)</li>
+    <li>Number of reviews associated with the brand</li>
+</ul>
+
+<h2>How to Use</h2>
+<ol>
+    <li>Install and activate the plugin.</li>
+    <li>Insert the shortcode <code>[brand_listing]</code> into a post, page, or template to 
+       display the brand listing.</li>
+    <li>Ensure that the "brands" custom post type exists and includes:</li>
+    <ul>
+        <li>ACF Image Field: <code>brands_logo</code> (Return Format: Image URL)</li>
+        <li>ACF Text Field: <code>brands_headquartered</code></li>
+        <li>Relationship Field: <code>reviews_brand</code> (links "reviews" CPT to "brands" CPT)</li>
+    </ul>
+</ol>
+
+<h2>Sorting</h2>
+<p>The listing is sorted alphabetically by Brand Name in ascending order.</p>
+
+<h2>File Overview</h2>
+<p>This plugin consists of the following files:</p>
+
+<ul>
+    <li><strong>brand-archive.php</strong> - The main plugin file that registers the plugin in WordPress. Loads the necessary scripts and styles. Adds the "Help" link to the WordPress Plugins page.</li>
+    <li><strong>brand-listing.php</strong> - Defines the shortcode <code>[brand_listing]</code>. Queries the "brands" custom post type. Fetches brand logos, headquarters locations, and associated review counts. Formats the output into a structured list.</li>
+    <li><strong>brand-listing.css</strong> - Styles the brand listing layout. Defines the appearance of images, text, and spacing.</li>
+    <li><strong>help.html</strong> - This help file, providing instructions on how to use the plugin.</li>
+    <li><strong>images/</strong> (folder, optional) - Stores the placeholder image used when a brand does not have a logo. If missing, ensure the image path in the code is correctly pointing to a valid image.</li>
+</ul>
+
+<h2>Help Link</h2>
+<p>This help file is linked directly from the WordPress Plugins page under the plugin name.</p>
+
+<h2>Troubleshooting</h2>
+<ul>
+    <li>If the plugin does not appear in the WordPress plugin list, verify that the folder is correctly named <code>brand-archive</code> and contains all necessary files.</li>
+    <li>If the shortcode does not display content, ensure that:
+        <ul>
+            <li>The "brands" post type exists.</li>
+            <li>Brands have been created and contain valid ACF data.</li>
+            <li>The "reviews" post type has assigned brands via the "reviews_brand" field.</li>
+        </ul>
+    </li>
+    <li>If images do not appear, ensure that the <code>brands_logo</code> field is correctly set to return an Image URL.</li>
+    <li>If review counts are incorrect, check that reviews have properly assigned brand relationships.</li>
+</ul>
+
+<h2>Support</h2>
+<p>For further assistance, contact the developer or check the plugin files in 
+<code>/wp-content/plugins/brand-archive/</code>.</p>
+
+<p><strong>End of help file.</strong></p>
+
+</body>
+</html>
